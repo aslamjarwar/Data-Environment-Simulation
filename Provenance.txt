@@ -1,0 +1,19 @@
+document
+  prefix env <https://adf.org/>
+  
+  bundle env:center_x
+    default <https://adf.org/center_x/>
+    
+    activity(ac_center_x_001_17062021112659, -, -)
+    agent(server, [prov:type="software"])
+    wasAssociatedWith(ac_center_x_001_17062021112659, server, -)
+    entity(en_center_x_001_17062021112659)
+    wasGeneratedBy(en_center_x_001_17062021112659, ac_center_x_001_17062021112659, -)
+    entity(en_center_x_001_17062021112709)
+    wasDerivedFrom(en_center_x_001_17062021112709, en_center_x_001_17062021112659, -, -, -)
+  endBundle
+  bundle env:center_y
+    default <https://adf.org/center_y/>
+    
+  endBundle
+endDocument

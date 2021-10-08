@@ -1,0 +1,29 @@
+document
+  prefix env <https://adf.org/>
+  prefix dcterms <http://purl.org/dc/terms/>
+  
+  bundle env:nrds
+    default <https://adf.org/nrds/>
+    
+    activity(search, -, -)
+    agent(nrds, [prov:type="DataController"])
+    wasAssociatedWith(search, nrds, -)
+    entity(contract_15072021231037, [prov:type="Entity", prov:description*="contract"])
+    activity(sendContract_15072021231037, -, -)
+    wasStartedBy(sendContract_15072021231037, search, -, -)
+    used(sendContract_15072021231037, contract_15072021231037, -)
+    entity(phyActivityDataset_15072021231037, [prov:type="Entity", dcterms:title="Available Physical Activty dataset"])
+    wasGeneratedBy(phyActivityDataset_15072021231037, search, -)
+    activity(receive_15072021231044, -, -, [prov:sessionId*=349, prov:contract_id*="DGI002"])
+    wasStartedBy(receive_15072021231044, sendContract_15072021231037, -, -)
+    entity(sid_15072021231044, [prov:sessionId*=349])
+    wasGeneratedBy(sid_15072021231044, receive_15072021231044, -)
+    activity(dataRequest_15072021231048, -, -, [prov:sessionId*=349, prov:contract_id*="DGI002"])
+    used(dataRequest_15072021231048, sid_15072021231044, -)
+    used(dataRequest_15072021231048, phyActivityDataset_15072021231037, -)
+    activity(receive_15072021231059, -, -, [prov:desc*="receiving required dataset"])
+    wasStartedBy(receive_15072021231059, dataRequest_15072021231048, -, -)
+    entity(phyActivityDataset_15072021231059, [prov:dec*="dataset contains top 5 rows from master dataset"])
+    wasGeneratedBy(phyActivityDataset_15072021231059, receive_15072021231059, -)
+  endBundle
+endDocument

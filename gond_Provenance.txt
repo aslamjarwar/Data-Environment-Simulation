@@ -1,0 +1,26 @@
+document
+  prefix env <https://adf.org/>
+  prefix dcterms <http://purl.org/dc/terms/>
+  
+  bundle env:gond
+    default <https://adf.org/gond/>
+    
+    activity(advertise, -, -)
+    agent(gond, [prov:type="DataController"])
+    wasStartedBy(advertise, gond, -, -)
+    entity(phyActivityDataset, [prov:host*="192.168.0.1", prov:type="Entity", dcterms:title="Physical Activty dataset"])
+    wasGeneratedBy(phyActivityDataset, advertise, -)
+    activity(contract_validation_15072021231038, 2021-05-12T14:15:00, 2021-05-12T14:16:00, [prov:contract_id*="DGI002"])
+    entity(contracts_15072021231038)
+    used(contract_validation_15072021231038, contracts_15072021231038, -)
+    entity(sessionId_349_15072021231041)
+    wasGeneratedBy(sessionId_349_15072021231041, contract_validation_15072021231038, -)
+    wasStartedBy(advertise, contract_validation_15072021231038, -, -)
+    activity(Send_ID_15072021231041, 2021-05-12T14:15:00, 2021-05-12T14:16:00, [prov:contract_id*="DGI002"])
+    used(Send_ID_15072021231041, sessionId_349_15072021231041, -)
+    entity(phyActivityDataset_15072021231054, [prov:type="Entity", prov:sessionId*=349, prov:contract_id*="DGI002", dcterms:title="Physical Activty derive dataset"])
+    wasDerivedFrom(phyActivityDataset_15072021231054, phyActivityDataset, -, -, -)
+    activity(share_15072021231054, 2021-05-12T14:15:00, 2021-05-12T14:16:00, [prov:sessionId*=349, prov:contract_id*="DGI002"])
+    used(share_15072021231054, phyActivityDataset_15072021231054, -)
+  endBundle
+endDocument
